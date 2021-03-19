@@ -3,15 +3,14 @@ import os
 from flask import request, jsonify, send_file
 from pytube import YouTube
 
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app = flask.Flask("Youtube Downloader")
 
-@app.route('/', methods=['GET'])
+@app.route('/youtube/api', methods=['GET'])
 def home():
-    return '''<h1>Distant Reading Archive</h1>
-<p>A prototype API for distant reading of science fiction novels.</p>'''
+    return '''<h1>Faut mettre un lien en fait
+    </h1>'''
 
-@app.route('/api/download', methods=['GET'])
+@app.route('/youtube/api/download', methods=['GET'])
 def api_url():
     if 'url' in request.args:
         url = request.args['url']
@@ -23,4 +22,6 @@ def api_url():
     stream.download()
 
     return send_file(stream.download(), as_attachment=True)
-app.run()
+
+if __name__ == '__main__':
+	app.run(host='0.0.0.0', port=os.getenv('PORT'))

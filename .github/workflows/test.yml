@@ -16,11 +16,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt;
-    - name: Set Environement Variable
+    - name: Run main.py
       run: |
         export FLASK_APP=main.py
         export FLASK_DEBUG=1
         export FLASK_ENV=production
-    - name: Run main.py
-      run: |
         flask run

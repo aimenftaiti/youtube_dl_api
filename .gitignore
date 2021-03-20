@@ -1,2 +1,3 @@
 env/
 *.mp4
+api/secret_key.py

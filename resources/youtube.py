@@ -3,10 +3,9 @@ from flask import jsonify, send_file
 from pytube import YouTube
 from api.app import api
 
-class YoutubeResource(Resource):
-    """Handle default route."""
+class YoutubeDownloadResource(Resource):
+    """Handle youtube downloader route."""
     def get(self):
-        """Get request for home page or response."""
         args = request.args
         url = args['url']
 
@@ -16,4 +15,5 @@ class YoutubeResource(Resource):
 
         return send_file(stream.download(), as_attachment=True)
 
-api.add_resource(YoutubeResource, "/api/dl", endpoint="home")
+
+api.add_resource(YoutubeDownloadResource, "/api/dl", endpoint="youtube_dl")

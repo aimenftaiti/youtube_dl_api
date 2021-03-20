@@ -1,8 +1,9 @@
 import os
+import api.secret_key as secret
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
-    SECRET_KEY = os.environ.get("SECRET_KEY") 
+    SECRET_KEY = secret.SECRET_KEY
     @staticmethod
     def init_app(app):
         pass
@@ -12,6 +13,8 @@ class DevelopmentConfig(Config):
 
 class TestingConfig(Config):
     TESTING = True
+    SECRET_KEY="GGggjjjfk887856$%kk"
+    WTF_CSRF_ENABLED = False
 
 class ProductionConfig(Config):
     pass

@@ -1,4 +1,8 @@
-env/
-*.mp4
-*/__pycache__
-__pycache__
+node_modules/
+.idea/
+api/package-lock.json
+*/Dockerfile
+*/.dockerignore
+*/docker-compose.yml
+package-lock.json
+vue/dist

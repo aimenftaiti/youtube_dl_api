@@ -4,8 +4,10 @@ export const download = async (req,res)=> {
     const videoUrl = req.query.videoUrl;
     try {
         const info = await ytdl.getInfo(videoUrl);
-        res.header("Content-Disposition", 'attachment; filename='+ info.videoDetails.title +".mp4");
-        ytdl(videoUrl, {format: 'mp4'}).pipe(res);
+        console.log(info.videoDetails.title);
+        res.setHeader("Content-Disposition", 'attachment;filename='+ info.videoDetails.title +".mp4");
+        console.log(res);
+        ytdl(videoUrl).pipe(res);
     } catch (err) {
         console.log(err);
         throw err;

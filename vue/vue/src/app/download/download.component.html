@@ -1,0 +1,13 @@
+<form>
+  <div class="row">
+    <div class="col-md-9">
+      <mat-form-field class="form-field">
+        <mat-label> Youtube URL </mat-label>
+        <input matInput type="text" [ngModel]="url" required>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3">
+      <button mat-raised-button color="primary" type="submit" (click)="sendURL()">Submit</button>
+    </div>
+  </div>
+</form>
